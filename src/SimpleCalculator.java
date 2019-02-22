@@ -5,6 +5,7 @@ import java.util.Arrays;
 
 public class SimpleCalculator extends JFrame {
     ArrayList<JButton>buttons=new ArrayList<JButton>();
+    ArrayList<String>operations=new ArrayList<String>();
     JButton btn_0=new JButton("0");
     JButton btn_1=new JButton("1");
     JButton btn_2=new JButton("2");
@@ -47,6 +48,17 @@ public class SimpleCalculator extends JFrame {
         buttons.add(btn_clear);
         buttons.add(btn_decimal);
         buttons.add(btn_signChange);
+
+        operations.add(btn_mult.getText());
+        operations.add(btn_divide.getText());
+        operations.add(btn_add.getText());
+        operations.add(btn_subtract.getText());
+        operations.add(btn_equals.getText());
+        operations.add(btn_signChange.getText());
+        operations.add(btn_equals.getText());
+        operations.add(btn_clear.getText());
+        operations.add(btn_decimal.getText());
+
 
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -129,14 +141,87 @@ public class SimpleCalculator extends JFrame {
     }
 
     public void processOperation(ActionEvent e) {
+        if(getNumberFromString(e.getActionCommand())!=null&&getNumberFromString(e.getActionCommand())<10){
+            System.out.println("number found");
+            txt_operand2.setText(txt_operand2.getText()+e.getActionCommand());
+        }
         if(e.getActionCommand().equals("+")) {
             operation.setText("+");
+            txt_operand1.setText(txt_operand2.getText());
+            txt_operand2.setText("");
         }
         else if(e.getActionCommand().equals("-")) {
             operation.setText("-");
+            txt_operand1.setText(txt_operand2.getText());
+            txt_operand2.setText("");
+        }
+        else if(e.getActionCommand().equals(btn_divide.getText())) {
+            operation.setText(btn_divide.getText());
+            txt_operand1.setText(txt_operand2.getText());
+            txt_operand2.setText("");
+        }
+
+        else if(e.getActionCommand().equals(btn_mult.getText())) {
+            operation.setText(btn_mult.getText());
+            txt_operand1.setText(txt_operand2.getText());
+            txt_operand2.setText("");
+        }
+        else if(e.getActionCommand().equals(btn_signChange.getText())) {
+            System.out.println(txt_operand2);
+            System.out.println(txt_operand2.getText());
+            if(txt_operand2.getText()==null||getNumberFromString(txt_operand2.getText())<0) {
+                if(txt_operand2.getText()==null) {
+                    System.out.println("IM NULL");
+                    txt_operand2.setText("-");
+                    return;
+                }
+                for(int x=0;x<txt_operand2.getText().length();x++) {
+                    txt_operand2.getText().replace(txt_operand2.getText().charAt(0)+"","-"+txt_operand2.getText().charAt(0));
+                }
+            }
+            else if(txt_operand2.getText()=="-"||getNumberFromString(txt_operand2.getText())>0) {
+                if(txt_operand2.getText()=="-") {
+                    txt_operand2.setText("");
+                    return;
+                }
+                for(int x=0;x<txt_operand2.getText().length();x++) {
+                    txt_operand2.getText().replace(txt_operand2.getText().charAt(0)+"","");
+                }
+            }
+        }
+        else if(e.getActionCommand().equals(btn_decimal.getText())) {
+            if(txt_operand2.getText().contains(".")) {
+                return;
+            }
+            txt_operand2.setText(txt_operand2.getText()+".");
+        }
+        else if(e.getActionCommand().equals("=")) {
+            if(txt_operand1.getText()==""||txt_operand2.getText()=="") {
+                System.out.println("Invalid Input");
+                return;
+            }
+            if(operation.getText().equals("+")) {
+                Double d =Double.parseDouble(txt_operand2.getText()) + Double.parseDouble(txt_operand1.getText());
+                txt_operand2.setText("" + d);
+                txt_operand1.setText("");
+                operation.setText("");
+            }
         }
         /*if number, add number to string, same for decimals, but check to make sure that
         there are no pre-existing decimals.
          */
+    }
+    public Double getNumberFromString(String s) {
+        for(String t:operations) {
+            if(s.equals(t)) {
+                return null;
+            }
+        }
+        if(!(s==null)) {
+            if (!s.equals("")) {
+                return Double.parseDouble(s);
+            }
+        }
+        return null;
     }
 }
