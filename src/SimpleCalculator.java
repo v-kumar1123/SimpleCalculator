@@ -1,10 +1,12 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class SimpleCalculator extends JFrame {
+public class SimpleCalculator extends JFrame implements KeyListener {
     ArrayList<JButton>buttons=new ArrayList<JButton>();
     ArrayList<String>operations=new ArrayList<String>();
 
@@ -297,5 +299,18 @@ public class SimpleCalculator extends JFrame {
             }
         }
         return null;
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+
+    }
+
+    public void keyPressed(KeyEvent e) {
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+
     }
 }
