@@ -163,6 +163,46 @@ public class SimpleCalculator extends JFrame implements KeyListener {
         }
         if(e.getActionCommand().equals("+")) {
 
+            if(!operation.getText().equals("")&&!txt_operand1.getText().equals("")&&txt_operand2.getText().equals("")) {
+                operation.setText(btn_add.getText());
+            }
+
+            else if(!txt_operand1.equals("")&&!operation.equals("")&&(!txt_operand2.equals("")&&!txt_operand2.equals("-")&&!txt_operand2.equals("."))) {
+                if(txt_operand1.getText()==""||txt_operand2.getText()=="") {
+                    System.out.println("Invalid Input");
+                    return;
+                }
+                if(operation.getText().equals("+")) {
+                    Double d =Double.parseDouble(txt_operand2.getText()) + Double.parseDouble(txt_operand1.getText());
+                    txt_operand2.setText("" + d);
+                    txt_operand1.setText("");
+                    operation.setText("");
+                }
+                if(operation.getText().equals("-")) {
+                    Double d =Double.parseDouble(txt_operand1.getText()) - Double.parseDouble(txt_operand2.getText());
+                    txt_operand2.setText("" + d);
+                    txt_operand1.setText("");
+                    operation.setText("");
+                }
+                if(operation.getText().equals(btn_mult.getText())) {
+                    Double d =Double.parseDouble(txt_operand2.getText()) * Double.parseDouble(txt_operand1.getText());
+                    txt_operand2.setText("" + d);
+                    txt_operand1.setText("");
+                    operation.setText("");
+                }
+
+                if(operation.getText().equals(btn_divide.getText())) {
+                    Double d =Double.parseDouble(txt_operand1.getText()) / Double.parseDouble(txt_operand2.getText());
+                    txt_operand2.setText("" + d);
+                    txt_operand1.setText("");
+                    operation.setText("");
+                }
+            }
+            if(!operation.getText().equals("")&&!txt_operand1.getText().equals("")) {
+                operation.setText(btn_add.getText());
+                return;
+            }
+
             operation.setHorizontalAlignment(SwingConstants.RIGHT);
             operation.setText("+");
             if(txt_operand1.getText().length()==0) {
@@ -172,6 +212,46 @@ public class SimpleCalculator extends JFrame implements KeyListener {
             txt_operand2.setText("");
         }
         else if(e.getActionCommand().equals("-")) {
+            if(!operation.getText().equals("")&&!txt_operand1.getText().equals("")&&txt_operand2.getText().equals("")) {
+                operation.setText(btn_subtract.getText());
+            }
+
+            else if(!txt_operand1.equals("")&&!operation.equals("")&&(!txt_operand2.equals("")&&!txt_operand2.equals("-")&&!txt_operand2.equals("."))) {
+                if(txt_operand1.getText()==""||txt_operand2.getText()=="") {
+                    System.out.println("Invalid Input");
+                    return;
+                }
+                if(operation.getText().equals("+")) {
+                    Double d =Double.parseDouble(txt_operand2.getText()) + Double.parseDouble(txt_operand1.getText());
+                    txt_operand2.setText("" + d);
+                    txt_operand1.setText("");
+                    operation.setText("");
+                }
+                if(operation.getText().equals("-")) {
+                    Double d =Double.parseDouble(txt_operand1.getText()) - Double.parseDouble(txt_operand2.getText());
+                    txt_operand2.setText("" + d);
+                    txt_operand1.setText("");
+                    operation.setText("");
+                }
+                if(operation.getText().equals(btn_mult.getText())) {
+                    Double d =Double.parseDouble(txt_operand2.getText()) * Double.parseDouble(txt_operand1.getText());
+                    txt_operand2.setText("" + d);
+                    txt_operand1.setText("");
+                    operation.setText("");
+                }
+
+                if(operation.getText().equals(btn_divide.getText())) {
+                    Double d =Double.parseDouble(txt_operand1.getText()) / Double.parseDouble(txt_operand2.getText());
+                    txt_operand2.setText("" + d);
+                    txt_operand1.setText("");
+                    operation.setText("");
+                }
+            }
+            if(!operation.getText().equals("")&&!txt_operand1.getText().equals("")) {
+                operation.setText(btn_subtract.getText());
+                return;
+            }
+
             operation.setHorizontalAlignment(SwingConstants.RIGHT);
             operation.setText("-");
             if(txt_operand1.getText().length()==0) {
@@ -181,6 +261,41 @@ public class SimpleCalculator extends JFrame implements KeyListener {
             txt_operand2.setText("");
         }
         else if(e.getActionCommand().equals(btn_divide.getText())) {
+            if(!operation.getText().equals("")&&!txt_operand1.getText().equals("")&&txt_operand2.getText().equals("")) {
+                operation.setText(btn_divide.getText());
+            }
+            else if(!txt_operand1.equals("")&&!operation.equals("")&&(!txt_operand2.equals("")&&!txt_operand2.equals("-")&&!txt_operand2.equals("."))) {
+                if(txt_operand1.getText()==""||txt_operand2.getText()=="") {
+                    System.out.println("Invalid Input");
+                    return;
+                }
+                if(operation.getText().equals("+")) {
+                    Double d =Double.parseDouble(txt_operand2.getText()) + Double.parseDouble(txt_operand1.getText());
+                    txt_operand2.setText("" + d);
+                    txt_operand1.setText("");
+                    operation.setText("");
+                }
+                if(operation.getText().equals("-")) {
+                    Double d =Double.parseDouble(txt_operand1.getText()) - Double.parseDouble(txt_operand2.getText());
+                    txt_operand2.setText("" + d);
+                    txt_operand1.setText("");
+                    operation.setText("");
+                }
+                if(operation.getText().equals(btn_mult.getText())) {
+                    Double d =Double.parseDouble(txt_operand2.getText()) * Double.parseDouble(txt_operand1.getText());
+                    txt_operand2.setText("" + d);
+                    txt_operand1.setText("");
+                    operation.setText("");
+                }
+
+                if(operation.getText().equals(btn_divide.getText())) {
+                    Double d =Double.parseDouble(txt_operand1.getText()) / Double.parseDouble(txt_operand2.getText());
+                    txt_operand2.setText("" + d);
+                    txt_operand1.setText("");
+                    operation.setText("");
+                }
+            }
+
             operation.setHorizontalAlignment(SwingConstants.RIGHT);
             operation.setText(btn_divide.getText());
             if(txt_operand1.getText().length()==0) {
@@ -197,6 +312,46 @@ public class SimpleCalculator extends JFrame implements KeyListener {
         }
 
         else if(e.getActionCommand().equals(btn_mult.getText())) {
+            if(!operation.getText().equals("")&&!txt_operand1.getText().equals("")&&txt_operand2.getText().equals("")) {
+                System.out.println("HEY I AM CALLING YOUUUU");
+                operation.setText(btn_mult.getText());
+                /*if (!txt_operand2.getText().isEmpty()) {
+                    txt_operand1.setText(txt_operand2.getText());
+                }*/
+            }
+            else if(!txt_operand1.equals("")&&!operation.equals("")&&(!txt_operand2.equals("")&&!txt_operand2.equals("-")&&!txt_operand2.equals("."))) {
+                if(txt_operand1.getText()==""||txt_operand2.getText()=="") {
+                    System.out.println("Invalid Input");
+                    return;
+                }
+                if(operation.getText().equals("+")) {
+                    Double d =Double.parseDouble(txt_operand2.getText()) + Double.parseDouble(txt_operand1.getText());
+                    txt_operand2.setText("" + d);
+                    txt_operand1.setText("");
+                    operation.setText("");
+                }
+                if(operation.getText().equals("-")) {
+                    Double d =Double.parseDouble(txt_operand1.getText()) - Double.parseDouble(txt_operand2.getText());
+                    txt_operand2.setText("" + d);
+                    txt_operand1.setText("");
+                    operation.setText("");
+                }
+                if(operation.getText().equals(btn_mult.getText())) {
+                    Double d =Double.parseDouble(txt_operand2.getText()) * Double.parseDouble(txt_operand1.getText());
+                    txt_operand2.setText("" + d);
+                    txt_operand1.setText("");
+                    operation.setText("");
+                }
+
+                if(operation.getText().equals(btn_divide.getText())) {
+                    Double d =Double.parseDouble(txt_operand1.getText()) / Double.parseDouble(txt_operand2.getText());
+                    txt_operand2.setText("" + d);
+                    txt_operand1.setText("");
+                    operation.setText("");
+                }
+            }
+
+
             operation.setHorizontalAlignment(SwingConstants.RIGHT);
             operation.setText(btn_mult.getText());
             if(txt_operand1.getText().length()==0) {
@@ -233,6 +388,38 @@ public class SimpleCalculator extends JFrame implements KeyListener {
             }
         }
         else if(e.getActionCommand().equals(btn_decimal.getText())) {
+            /*if(!txt_operand1.equals("")&&!operation.equals("")&&(!txt_operand2.equals("")&&!txt_operand2.equals("-")&&!txt_operand2.equals("."))) {
+                if(txt_operand1.getText()==""||txt_operand2.getText()=="") {
+                    System.out.println("Invalid Input");
+                    return;
+                }
+                if(operation.getText().equals("+")) {
+                    Double d =Double.parseDouble(txt_operand2.getText()) + Double.parseDouble(txt_operand1.getText());
+                    txt_operand2.setText("" + d);
+                    txt_operand1.setText("");
+                    operation.setText("");
+                }
+                if(operation.getText().equals("-")) {
+                    Double d =Double.parseDouble(txt_operand1.getText()) - Double.parseDouble(txt_operand2.getText());
+                    txt_operand2.setText("" + d);
+                    txt_operand1.setText("");
+                    operation.setText("");
+                }
+                if(operation.getText().equals(btn_mult.getText())) {
+                    Double d =Double.parseDouble(txt_operand2.getText()) * Double.parseDouble(txt_operand1.getText());
+                    txt_operand2.setText("" + d);
+                    txt_operand1.setText("");
+                    operation.setText("");
+                }
+
+                if(operation.getText().equals(btn_divide.getText())) {
+                    Double d =Double.parseDouble(txt_operand1.getText()) / Double.parseDouble(txt_operand2.getText());
+                    txt_operand2.setText("" + d);
+                    txt_operand1.setText("");
+                    operation.setText("");
+                }
+            }*/
+
 
             equalsPressed=false;
             if(txt_operand2.getText().contains(".")) {
