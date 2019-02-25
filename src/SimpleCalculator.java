@@ -246,7 +246,7 @@ public class SimpleCalculator extends JFrame implements KeyListener {
             equalsPressed=true;
 
             txt_operand2.setHorizontalAlignment(SwingConstants.RIGHT);
-            if(txt_operand2.getText().length()==0) {
+            if(txt_operand2.getText().length()==0||txt_operand2.getText().equals(".")||txt_operand2.getText().equals("-")) {
                 txt_operand2.setHorizontalAlignment(SwingConstants.RIGHT);
                 txt_operand2.setText("YOU DON'T HAVE A NUMBER, YOU FOOL");
                 txt_operand2.setFont(font);
@@ -263,7 +263,7 @@ public class SimpleCalculator extends JFrame implements KeyListener {
                 operation.setText("");
             }
             if(operation.getText().equals("-")) {
-                Double d =Double.parseDouble(txt_operand2.getText()) - Double.parseDouble(txt_operand1.getText());
+                Double d =Double.parseDouble(txt_operand1.getText()) - Double.parseDouble(txt_operand2.getText());
                 txt_operand2.setText("" + d);
                 txt_operand1.setText("");
                 operation.setText("");
@@ -276,7 +276,7 @@ public class SimpleCalculator extends JFrame implements KeyListener {
             }
 
             if(operation.getText().equals(btn_divide.getText())) {
-                Double d =Double.parseDouble(txt_operand2.getText()) / Double.parseDouble(txt_operand1.getText());
+                Double d =Double.parseDouble(txt_operand1.getText()) / Double.parseDouble(txt_operand2.getText());
                 txt_operand2.setText("" + d);
                 txt_operand1.setText("");
                 operation.setText("");
